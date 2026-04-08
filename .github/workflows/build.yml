@@ -32,7 +32,7 @@ jobs:
 
       - name: Configure UART HID
         run: |
-          # 核心：强制启用UART HID，禁用其他所有输出
+          # 强制启用UART HID，禁用其他输出
           sed -i 's/CONFIG_BLUERETRO_OUTPUT_BLE=y/CONFIG_BLUERETRO_OUTPUT_BLE=n/' sdkconfig.defaults
           sed -i 's/CONFIG_BLUERETRO_OUTPUT_UART_HID=n/CONFIG_BLUERETRO_OUTPUT_UART_HID=y/' sdkconfig.defaults
           idf.py set-target ${{ inputs.chip }}
